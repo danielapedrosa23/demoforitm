@@ -1,0 +1,5 @@
+def circle_area(radius: int):
+  answer = 3.14 * (radius ** 2) 
+  return answer
+  
+  my answer = circle_area(2) 
