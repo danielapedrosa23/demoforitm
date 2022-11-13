@@ -32,13 +32,10 @@ def shift_letter(letter, shift):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     
-    answer = ' '
-      for character: 
-        if character == ' ': 
-          continue
-      character_value = (character) + shift(number) 
-      answer = answer + character_value  
-    
+    if letter == ' ': 
+        return (' ')
+    else: 
+        answer = chr((ord(letter) - ord('A') + shift) % 26 + ord('A'))
     return answer 
 
 def caesar_cipher(message, shift):
@@ -59,7 +56,10 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    shift_number = 3 
+    
+    alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    answer= ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
+    return answer
     
 
 def shift_by_letter(letter, letter_shift):
@@ -87,7 +87,11 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    if letter == ' ': 
+        return (' ')
+    else:  
+        answer = chr((ord(letter) - ord('A') + ((ord(shift) - ord('A')) % 26)) % 26 + ord('A'))
+    return answer
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
