@@ -120,4 +120,19 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    def vignere_cipher(message, key): 
+    key = list(key) 
+    if len(message) == len(key): 
+        return(key) 
+    else: 
+        for i in range(len(message) -len(key)): 
+          key.append(key[i % len(key)]) 
+    return("" . join(key)) 
+  
+    def encryption(message, key): 
+    encrypt_text = [] 
+    for i in range(len(message)): 
+        x = (ord(message[i]) +ord(key[i])) % 26
+        x += ord('A') 
+        encrypt_text.append(chr(x))  
+    return("" . join(encrypt_text))
