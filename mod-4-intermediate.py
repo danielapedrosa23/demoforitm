@@ -57,8 +57,7 @@ def caesar_cipher(message, shift):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     
-    alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    answer= ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
+    answer = ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
     return answer
     
 
@@ -90,7 +89,7 @@ def shift_by_letter(letter, letter_shift):
     if letter == ' ': 
         return (' ')
     else:  
-        answer = chr((ord(letter) - ord('A') + ((ord(shift) - ord('A')) % 26)) % 26 + ord('A'))
+        answer = chr((ord(letter) - ord('A') + ((ord(letter_shift) - ord('A')) % 26)) % 26 + ord('A'))
     return answer
 
 def vigenere_cipher(message, key):
