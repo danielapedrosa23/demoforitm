@@ -91,11 +91,12 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    if letter == ' ': 
-        return (' ')
-    else:  
-        answer = chr((ord(letter) - ord('A') + ((ord(letter_shift) - ord('A')) % 26)) % 26 + ord('A'))
-    return answer
+    for char in message: 
+        if ord(char) == " ":
+            return " "
+        else: 
+            answer = ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
+            return answer
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
@@ -131,8 +132,7 @@ def vigenere_cipher(message, key):
         for i in range(len(message) -len(key)): 
           key.append(key[i % len(key)]) 
     return("" . join(key)) 
-  
-    def encryption(message, key): 
+
     encrypt_text = [] 
     for i in range(len(message)): 
         x = (ord(message[i]) +ord(key[i])) % 26
