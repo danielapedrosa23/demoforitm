@@ -95,7 +95,7 @@ def shift_by_letter(letter, letter_shift):
         if ord(char) == " ":
             return " "
         else: 
-            answer = ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
+            answer = ''.join(chr((ord(char) - 65 + letter_shift) % 26 + 65) for char in message)
             return answer
 
 def vigenere_cipher(message, key):
