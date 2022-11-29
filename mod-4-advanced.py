@@ -40,7 +40,7 @@ def relationship_status(from_member, to_member, social_graph):
     elif to_member in social_graph[from_member]["following"] and from_member not in social_graph[to_member]["following"]:
         return "Follower"
     else:
-        return "None"
+        return "No Relationship Found"
 
 
 def tic_tac_toe(board):
