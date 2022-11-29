@@ -57,12 +57,11 @@ def caesar_cipher(message, shift):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     
-    if ord(message) == 32: 
-        return " "; 
-    else: 
-        pass 
-    
-    answer = ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
+    for char in message: 
+        if ord(char) == 32: 
+            answer = answer + char
+        elif ord(char) <= 90 and ord(char) >= 65:  
+            answer = ''.join(chr((ord(char) - 65 + shift) % 26 + 65) for char in message)
     return answer
     
 
@@ -91,12 +90,11 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    for char in message: 
-        if ord(char) == " ":
-            return " "
-        else: 
-            answer = ''.join(chr((ord(char) - 65 + letter_shift) % 26 + 65) for char in message)
-            return answer
+    if letter == ' ': 
+        return (' ')
+    else:  
+        answer = chr((ord(letter) - ord('A') + ((ord(letter_shift) - ord('A')) % 26)) % 26 + ord('A'))
+    return answer
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
@@ -125,17 +123,19 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    key = list(key) 
+    cipher =  len(key)
+    answer = ""
+    
     if len(message) == len(key): 
         return(key) 
-    else: 
-        for i in range(len(message) -len(key)): 
-          key.append(key[i % len(key)]) 
-    return("" . join(key)) 
-
-    encrypt_text = [] 
-    for i in range(len(message)): 
-        x = (ord(message[i]) +ord(key[i])) % 26
-        x += ord('A') 
-        encrypt_text.append(chr(x))  
-    return("" . join(encrypt_text))
+    
+    else:
+        for i in range(len(message)-len(key)):  
+            if message[i] == " ": 
+                answer += " "
+            key.append(key[i % len(key)]) 
+            return("" . join(key)) 
+    
+    answer += chr((ord(message[i]) +ord(key[i % cipher]) % 26) + 65) 
+                       
+    return answer 
