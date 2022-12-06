@@ -64,7 +64,34 @@ def tic_tac_toe(board):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+
+#this will be used to check the rows of the board
+    if board == '': 
+        return "NO WINNER"
+    
+    for row in board:
+        if len(set(row)) == 1:
+            return row[0]
+        elif len(set(row)) == '':
+            return "NO WINNER"
+
+#this will be used to check the columns of the board
+    for row in zip(*board):    
+        if len(set(row)) == 1:
+            return row[0]
+        elif len(set(row)) == '':
+            return "NO WINNER"
+
+#this will be used to check the diagonals of the board 
+    if len(set([board[i][i] for i in range(len(board))])) == 1:
+        return board[0][0]
+    if len(set([board[i][len(board)-i-1] for i in range(len(board))])) == 1:
+        return board[0][len(board)-1]
+    if len(set([board[2-i][i] for i in range(len(board))])) == 1:
+        return board[2-0][0]
+  
+    else:
+        return "NO WINNER"
 
 def eta(first_stop, second_stop, route_map):
     '''ETA. 
