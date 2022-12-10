@@ -56,6 +56,7 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
+    answer = ""
     
     for char in message: 
         if ord(char) == 32: 
@@ -129,13 +130,11 @@ def vigenere_cipher(message, key):
     if len(message) == len(key): 
         return(key) 
     
-    else:
-        for i in range(len(message)-len(key)):  
-            if message[i] == " ": 
-                answer += " "
-            key.append(key[i % len(key)]) 
-            return("" . join(key)) 
-    
-    answer += chr((ord(message[i]) +ord(key[i % cipher]) % 26) + 65) 
-                       
-    return answer 
+    for i in range (len(message)):
+        if message[i] == " ": 
+            answer += " "
+            
+        else:
+            answer += chr( ( ( ord(message[i]) + ord(key[i % cipher])) % 26  ) + 65 )
+            
+    return answer
