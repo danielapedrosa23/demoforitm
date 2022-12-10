@@ -124,11 +124,8 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    cipher =  len(key)
+    cipher = len(key)
     answer = ""
-    
-    if len(message) == len(key): 
-        return(key) 
     
     for i in range (len(message)):
         if message[i] == " ": 
