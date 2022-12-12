@@ -119,4 +119,19 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    travel_time = 0
+    loop = 0
+
+    for index in route_map.keys():
+        if index[0] == first_stop:
+            loop = index
+
+    while loop[1] != second_stop:
+        travel_time += route_map[loop]['travel_time_mins']
+        for index in route_map.keys():
+            if index[1] == second_stop:
+                loop = index
+
+    travel_time += route_map[loop]['travel_time_mins']
+
+    return travel_time
